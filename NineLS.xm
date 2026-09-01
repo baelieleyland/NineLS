@@ -1,4 +1,5 @@
 #import "NineLS.h"
+#import <rootless.h>
 
 // For Slide To Unlock text color
 
@@ -94,7 +95,7 @@ void initNineLS() {
   NSMutableDictionary const *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.minhton.ninelspref.plist"];
 
   if (!prefs) {
-    NSURL *source = [NSURL fileURLWithPath:@"/Library/PreferenceBundles/NineLSPref.bundle/defaults.plist"];
+    NSURL *source = [NSURL fileURLWithPath:ROOT_PATH_NS(@"/Library/PreferenceBundles/NineLSPref.bundle/defaults.plist")];
     NSURL *destination = [NSURL fileURLWithPath:@"/var/mobile/Library/Preferences/me.minhton.ninelspref.plist"];
     [[NSFileManager defaultManager] copyItemAtURL:source toURL:destination error:nil];
   }
@@ -1384,7 +1385,7 @@ void setIsOnLockscreen(bool value) {
       if (!(MSHookIvar<NSUInteger>([objc_getClass("SBLockStateAggregator") sharedInstance], "_lockState") == 0)) return;
       SystemSoundID sound = 0;
       AudioServicesDisposeSystemSoundID(sound);
-      AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain([NSURL fileURLWithPath:@"/Library/Application Support/NineLS/lock.caf"]), &sound);
+      AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain([NSURL fileURLWithPath:ROOT_PATH_NS(@"/Library/Application Support/NineLS/lock.caf")]), &sound);
       AudioServicesPlaySystemSound((SystemSoundID)sound);
     } else {
       %orig;
