@@ -1,8 +1,8 @@
-Package: me.minhton.ninels
-Name: NineLS
-Version: 1.0.1
-Architecture: iphoneos-arm
-Description: Bring back the iOS 9 Lock Screen!
+Package: me.minhton.ninels15
+Name: NineLS15
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Description: Bring back the iOS 9 Lock Screen for iOS 15!
 Maintainer: MinhTon <ford.tonthat@gmail.com>
 Author: MinhTon <ford.tonthat@gmail.com>
 Section: Tweaks
@@ -11,3 +11,4 @@ Conflicts: me.lightmann.vinyl, love.litten.lobelias, me.minhton.nineunlock, me.m
 Icon: https://minh-ton.github.io/repo/icons/NineLS/Icon.png
 Depiction: https://minh-ton.github.io/repo/depictions/?p=me.minhton.ninels
 Homepage: https://minh-ton.github.io
+
