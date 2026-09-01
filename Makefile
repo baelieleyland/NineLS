@@ -11,10 +11,9 @@ TWEAK_NAME = NineLS
 
 NineLS_FILES = NineLS.xm support/MarqueeLabel.m
 
-NineLS_FRAMEWORKS = UIKit CoreGraphics QuartzCore MediaPlayer AVFoundation AudioToolbox MediaRemote
+NineLS_FRAMEWORKS = UIKit CoreGraphics QuartzCore MediaPlayer AVFoundation AudioToolbox
+NineLS_PRIVATE_FRAMEWORKS = MediaRemote
 
 NineLS_CFLAGS = -fobjc-arc
-
-NineLS_LDFLAGS = -undefined dynamic_lookup
 
 include $(THEOS_MAKE_PATH)/tweak.mk
