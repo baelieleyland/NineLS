@@ -15,13 +15,21 @@ jobs:
       - name: Setup Theos
         uses: waruhachi/theos-action@v2.4.6
         with:
-          theos-src: waruhachi/theos
-          theos-branch: main
-          sdks-src: waruhachi/sdks
-          sdks-branch: main
+          theos-src: theos/theos
+          theos-branch: master
+          sdks-src: theos/sdks
+          sdks-branch: master
           libgcuniversal: true
           libgcuniversal-src: waruhachi/LibGcUniversal
           libgcuniversal-branch: main
+
+      - name: Verify SDK
+        run: |
+          echo "=== Theos SDKs ==="
+          ls -la "$THEOS/sdks"
+
+          echo "=== MediaRemote ==="
+          find "$THEOS/sdks" -iname '*MediaRemote*' -print
 
       - name: Build NineLS
         run: |
