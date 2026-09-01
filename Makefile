@@ -1,20 +1,17 @@
-TARGET := iphone:clang::13.3
-ARCHS = arm64 arm64e
-DEBUG=0
+THEOS_PACKAGE_SCHEME = rootless
 
-PACKAGE_VERSION = $(THEOS_PACKAGE_BASE_VERSION)
+ARCHS = arm64 arm64e
+TARGET = iphone:clang:latest:15.0
+
 INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = NineLS
 
-NineLS_FILES = support/MarqueeLabel.m NineLS.xm
+NineLS_FILES = NineLS.xm
+NineLS_FRAMEWORKS = UIKit CoreGraphics QuartzCore MediaPlayer AVFoundation AudioToolbox
+
 NineLS_CFLAGS = -fobjc-arc
-NineLS_FRAMEWORKS = UIKit
-NineLS_PRIVATE_FRAMEWORKS = MediaRemote
-NineLS_LIBRARIES = colorpicker
 
 include $(THEOS_MAKE_PATH)/tweak.mk
-SUBPROJECTS += Preferences
-include $(THEOS_MAKE_PATH)/aggregate.mk
